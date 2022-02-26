@@ -59,7 +59,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if HEROKU_APP_NAME is None:
             await event.edit(
                 "`[HEROKU]: Harap Siapkan Variabel` **HEROKU_APP_NAME** `"
-                " untuk dapat deploy perubahan terbaru dari ⚡𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​⚡.`"
+                " untuk dapat deploy perubahan terbaru dari Galon-Userbot.`"
             )
             repo.__del__()
             return
@@ -69,11 +69,11 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                 break
         if heroku_app is None:
             await event.edit(
-                f"{txt}\n`Kredensial Heroku tidak valid untuk deploy 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓 dyno.`"
+                f"{txt}\n`Kredensial Heroku tidak valid untuk deploy Galon-Userbot dyno.`"
             )
             return repo.__del__()
         await event.edit(
-            "**[HEROKU] Sedang MengUpdate**" "\nMohon Mohon Menunggu 5-7 Menit"
+            "**[HEROKU] Sedang MengUpdate Galon-Userbot**" "\nMohon Mohon Menunggu 5-7 Menit"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -99,14 +99,14 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             return await event.delete()
         else:
             await event.edit(
-                "**𝐒𝐊𝐘𝐙𝐔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓​ Berhasil DiUpdate,Restart Tunggu Sebentar**"
+                "**GALON-USERBOT Berhasil DiUpdate,Restart Tunggu Sebentar**"
             )
             await asyncio.sleep(15)
             await event.delete()
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#BOT \n" "**𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​ Berhasil Di Update**"
+                BOTLOG_CHATID, "#BOT \n" "**GALON-USERBOT Berhasil Di Update**"
             )
 
     else:
@@ -124,9 +124,9 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    await event.edit("**𝐒𝐊𝐘𝐙𝐔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓​** `Berhasil Di Update!`")
+    await event.edit("**GALON-USERBOT** `Berhasil Di Update!`")
     await asyncio.sleep(1)
-    await event.edit("**𝐒𝐊𝐘𝐙𝐔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓​** `Di Restart....`")
+    await event.edit("**GALON-USERBOT** `Di Restart....`")
     await asyncio.sleep(1)
     await event.edit("`Mohon Menunggu Beberapa Detik.`")
     await asyncio.sleep(10)
@@ -134,7 +134,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#BOT \n" "**⚡𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​⚡ Telah Di Perbarui.**"
+            BOTLOG_CHATID, "#BOT \n" "**⚡GALON-USERBOT⚡ Telah Di Perbarui.**"
         )
         await asyncio.sleep(100)
         await event.delete()
@@ -197,13 +197,13 @@ async def upstream(event):
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
 
     if changelog == "" and force_update is False:
-        await event.edit(f"\n**⚡𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​ Sudah Versi Terbaru**\n")
+        await event.edit(f"\n**Galon-Userbot Sudah Versi Terbaru**\n")
         await asyncio.sleep(15)
         await event.delete()
         return repo.__del__()
 
     if conf is None and force_update is False:
-        changelog_str = f"**Pembaruan Untuk 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​ :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
+        changelog_str = f"**Pembaruan Untuk Galon-Userbot :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
         if len(changelog_str) > 4096:
             await event.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
             file = open("output.txt", "w+")
@@ -218,7 +218,7 @@ async def upstream(event):
         else:
             await event.edit(changelog_str)
         return await event.respond(
-            f"**Perintah Untuk Update, Sebagai Berikut.**\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}update now`\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}update deploy`\n\nUntuk Meng Update Fitur Terbaru Dari **𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​**"
+            f"**Perintah Untuk Update, Sebagai Berikut.**\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}update now`\n 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:`{cmd}update deploy`\n\nUntuk Meng Update Fitur Terbaru Dari **GALON-USERBOT**"
         )
 
     if force_update:
@@ -226,13 +226,13 @@ async def upstream(event):
             "`Sinkronisasi Paksa Ke Kode Userbot Stabil Terbaru, Harap Tunggu .....`"
         )
     else:
-        await event.edit("` Proses Update 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​, Loading....1%`")
-        await event.edit("` Proses Update 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​ Loading....20%`")
-        await event.edit("` Proses Update 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​, Loading....35%`")
-        await event.edit("` Proses Update 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​, Loading....77%`")
-        await event.edit("` Proses Update 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​, Updating...90%`")
+        await event.edit("` Proses Update GALON-USERBOT, Loading....1%`")
+        await event.edit("` Proses Update GALON-USERBOT Loading....20%`")
+        await event.edit("` Proses Update GALON-USERBOT, Loading....35%`")
+        await event.edit("` Proses Update GALON-USERBOT, Loading....77%`")
+        await event.edit("` Proses Update GALON-USERBOT, Updating...90%`")
         await event.edit(
-            "` Proses Update 𝐒𝐊𝐘𝐙𝐔-𝐔𝐒𝐄𝐑𝐁𝐎𝐓​, Mohon Tunggu Sebentar....100%`"
+            "` Proses Update GALON-USERBOT, Mohon Tunggu Sebentar....100%`"
         )
 
     if conf == "now":
@@ -249,10 +249,10 @@ async def upstream(event):
 CMD_HELP.update(
     {
         "update": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update`"
-        "\n• : Untuk Melihat Pembaruan Terbaru Skyzu-Userbot."
+        "\n• : Untuk Melihat Pembaruan Terbaru Galon-Userbot."
         f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update now`"
-        "\n• : Memperbarui Skyzu-Userbot."
+        "\n• : Memperbarui Galon-Userbot."
         f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}update deploy`"
-        "\n• : Memperbarui Skyzu-Userbot Dengan Cara Men-Deploy Ulang."
+        "\n• : Memperbarui Galon-Userbot Dengan Cara Men-Deploy Ulang."
     }
 )
