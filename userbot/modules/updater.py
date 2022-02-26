@@ -73,7 +73,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             )
             return repo.__del__()
         await event.edit(
-            "**[HEROKU] Sedang MengUpdate Galon-Userbot**" "\nMohon Mohon Menunggu 5-7 Menit"
+            "**[HEROKU] Sedang MengUpdate Galon-Userbot**"
+            "\nMohon Mohon Menunggu 5-7 Menit"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -203,7 +204,9 @@ async def upstream(event):
         return repo.__del__()
 
     if conf is None and force_update is False:
-        changelog_str = f"**Pembaruan Untuk Galon-Userbot :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
+        changelog_str = (
+            f"**Pembaruan Untuk Galon-Userbot :\n\n⚒️ Pembaruan Data :**\n`{changelog}`"
+        )
         if len(changelog_str) > 4096:
             await event.edit("`Changelog Terlalu Besar, Lihat File Untuk Melihatnya.`")
             file = open("output.txt", "w+")
