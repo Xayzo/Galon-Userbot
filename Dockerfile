@@ -1,5 +1,5 @@
 # Using Python Slim-Buster
-FROM skyzuxzy/skyzu-userbot:buster
+FROM python:slim-buster
 #━━━━━ Userbot Telegram ━━━━━
 #━━━━━ By Skyzuu-Userbot ━━━━━
 
